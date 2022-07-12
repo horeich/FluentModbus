@@ -63,6 +63,10 @@ namespace FluentModbus
         /// </summary>
         public StopBits StopBits { get; set; } = StopBits.One;
 
+        public bool DtrEnable { get; set; } = false;
+
+        public bool RtsEnable { get; set; } = true;
+
         /// <summary>
         /// Gets or sets the read timeout in milliseconds. Default is 1000 ms.
         /// </summary>
@@ -100,7 +104,9 @@ namespace FluentModbus
                 Parity = Parity,
                 StopBits = StopBits,
                 ReadTimeout = ReadTimeout,
-                WriteTimeout = WriteTimeout
+                WriteTimeout = WriteTimeout,
+                DtrEnable = DtrEnable,
+                RtsEnable = RtsEnable,
             });
 
             Connect(serialPort, endianness);
